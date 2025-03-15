@@ -31,7 +31,7 @@ c) A saída será undefined seguido de undefined
 d) A saída será erro em ambas as linhas que utilizam console.log
 
 Resposta:
-Alternativa a) Se rodarmos o console.log antes da variável, o programa não vai reconhecer o valor dela, mostrando undefined. Com a variável y acontece algo semelhante, mas por ser tipo let, aparece erro.
+a, pois o console log está antes da variável ser definida, portanto, não há valor para apresentar.
 
 
 **2) O seguinte código JavaScript tem um erro que impede sua execução correta. Analise e indique a opção que melhor corrige o problema. Justifique sua resposta.**
@@ -54,7 +54,7 @@ c) Substituir if (a || b === 0) por if (a && b === 0)
 
 d) Remover completamente a verificação if (a || b === 0)
 
-alternativa b) O código foi feito para verificar se os dois valores da função não são 0. Caso não sejam, eles são somados e o resultado é mostrado no console.log, mas no código só é conferido o valor do b, ignorando o a. Ainda por cima caso o número seja zero, como no código original, ele vai se encaixar na função e gerar um erro. Para resolver isso o operador lógico deve ser trocado por && (e), fazendo o erro acontecer somente no caso de 0 nos dois valores.
+b, o código checa se os números da soma são diferentes de 0, caso sejam, a soma é ralizada e caso contrário, retorna "Erro: número inválido". Caso troque || por &&, o código ira funcionar normalmente, pois ele irá checar o valor de ambos os números serem 0, não apenas um.
 
 ______
 **3) Ao executar esse código, qual será a saída no console? Indique a alternativa correta e justifique sua resposta.**
@@ -89,7 +89,7 @@ c) O código imprime 50.
 
 d) O código gera um erro.
 
-alternativa b) O pensamento mais intuitivo é que o código iria imprimir 1000, mas por conta da falta do break após o case "eletrônico", o valor de 1000 é substituído por 200.
+b, a saída será 200, pois o primeiro break está depois deste valos, portanto 1000 será pulado.
 ______
 **4) Ao executar esse código, qual será a saída no console? Indique a alternativa correta e justifique sua resposta.**
 ```javascript
@@ -107,7 +107,7 @@ c) 18
 
 d) 24
 
-alternativa d) O resultado será 24 já que o método map() percorre cada elemento do array numeros e retorna um novo array onde cada elemento foi multiplicado por 2, depois o método filter() seleciona apenas os números maiores que 5, e o método reduce() soma os valores restantes resultando no número 24.
+d, O método `map()` percorre cada elemento do array `numeros`, gerando um novo array com os valores multiplicados por 2. Em seguida, o método `filter()` seleciona apenas os números maiores que 5. Por fim, o método `reduce()` soma os valores filtrados, resultando no total de 24.
 ______
 **5) Qual será o conteúdo do array lista após a execução do código? Indique a alternativa correta e justifique sua resposta.**
 
@@ -125,7 +125,7 @@ c) ["banana", "abacaxi", "manga", "laranja"]
 
 d) ["banana", "maçã", "uva", "abacaxi", "manga"]
 
-alternativa c) Esse é o conteúdo mostrado por conta do splice que escolhe qual posição do array que será modificada, índice inicial onde a alteração começa, posição inicial 1 que é o segundo elemento maçã, depois são escolhidos os dois elementos que serão removidos. Depois os elementos "abacaxi", "manga" que serão inseridos no lugar dos removidos. Deixando na ordem "banana", "abacaxi", "manga", "laranja".
+C. o splice tá agindo aqui escolhendo onde o array vai ser modificado. Primeiro, ele define o índice inicial da mudança, que no caso é 1 (ou seja, começa em "maçã"). Depois, ele remove dois elementos a partir daí. E por fim, ele insere "abacaxi" e "manga" no lugar dos que saíram. No final, o array fica assim: "banana", "abacaxi", "manga", "laranja".
 ______
 **6) Abaixo há duas afirmações sobre herança em JavaScript. Indique a alternativa correta e justifique sua resposta**
 
@@ -141,7 +141,7 @@ c) A primeira afirmação é verdadeira, e a segunda é falsa.
 
 d) A primeira afirmação é falsa, e a segunda é verdadeira.
 
-alternativa b) O JavaScript tem essa função e ela funciona como descrito na afirmação 1. Sim, a herança é implementada através da palavra-chave extends, mas ela usa uma sintaxe mais parecida com (POO).
+B. No JavaScript, essa função opera conforme descrito na afirmação 1. De fato, a herança é implementada por meio da palavra-chave extends, seguindo uma sintaxe semelhante à utilizada na Programação Orientada a Objetos (POO).
 ______
 **7) Dado o seguinte código. Indique a alternativa correta e justifique sua resposta.**
 
@@ -185,7 +185,7 @@ c) Apenas II é verdadeira.
 
 d) Apenas I é verdadeira.
 
-alternativa a) A classe funcionario, usa extend e super para acessar as classes nome e idade. A afirmativa 2 também está correta, a função apresentar da classe pessoa é sim sobreescrita pela da classe funcionario, mas por conta de usar o super funciona.
+A. A classe Funcionario utiliza extends e super para acessar os atributos nome e idade da classe base. Além disso, a afirmativa 2 está correta, pois o método apresentar da classe Pessoa é, de fato, sobrescrito pelo da classe Funcionario. No entanto, devido ao uso do super, a funcionalidade da classe pai ainda é preservada.
 ______
 
 **8) Analise as afirmações a seguir. Indique a alternativa correta e justifique sua resposta.**
@@ -201,7 +201,7 @@ c) A asserção é verdadeira e a razão é verdadeira, mas a razão não explic
 
 d) A asserção é verdadeira e a razão é verdadeira, e a razão explica a asserção.
 
-alternativa a) O polimorfismo permite que diferentes objetos do mesmo tipo respondam de maneiras distintas. A afirmação está correta, pois a sobrecarga de métodos é uma das técnicas utilizadas para implementar esse conceito.
+A. O polimorfismo possibilita que diferentes objetos de um mesmo tipo respondam de maneiras distintas a uma mesma chamada de método. A afirmação está correta, uma vez que a sobrecarga de métodos é uma das técnicas empregadas para implementar esse conceito.
 ______
 
 # Questões dissertativas
@@ -222,10 +222,9 @@ Código concertado:
 
 ```javascript
 function somaArray(numeros) {
-    let soma = 0; // Inicializando a variável soma corretamente
-
-    for (let i = 0; i < numeros.length; i++) { // Usando .length corretamente
-        soma += 2 * numeros[i]; // Acumulando a soma corretamente
+    let soma = 0; // declarando a variável antes da ultilização
+    for (let i = 0; i < numeros.length; i++) { // troca .size por.length
+        soma += 2 * numeros[i];  //soma os números
     }
     
     return soma;
@@ -243,6 +242,7 @@ ______
 Explique como funciona a herança nesse contexto e como você implementaria a modificação do método na classe `Livro`.
 
 ```javascript
+// Superclasse Produto
 class Produto {
     constructor(nome, preco) {
         this.nome = nome;
@@ -250,29 +250,28 @@ class Produto {
     }
 
     calcularDesconto() {
-        return this.preco * 0.90; // Aplica 10% de desconto
+        return this.preco * 0.9; // Aplica 10% de desconto
     }
 }
 
-// Classe derivada (subclasse)
+// Subclasse Livro
 class Livro extends Produto {
     constructor(nome, preco, autor) {
-        super(nome, preco); // Chama o construtor da superclasse
+        super(nome, preco); // Chama o construtor da superclasse Produto
         this.autor = autor;
     }
 
-    // Sobrescreve o método calcularDesconto para aplicar 20%
     calcularDesconto() {
-        return this.preco * 0.80;
+        return this.preco * 0.8; // Aplica 20% de desconto para livros
     }
 }
 
-// Criando instâncias das classes
-let produtoGenerico = new Produto("Fone de Ouvido", 100);
-let livro1 = new Livro("JavaScript Avançado", 150, "Carlos Silva");
+// Exemplo de uso
+const produtoGeral = new Produto("Notebook", 3000);
+console.log(`Preço com desconto do produto: R$ ${produtoGeral.calcularDesconto().toFixed(2)}`);
 
-console.log(`${produtoGenerico.nome} com desconto: R$ ${produtoGenerico.calcularDesconto().toFixed(2)}`);
-console.log(`${livro1.nome} de ${livro1.autor} com desconto: R$ ${livro1.calcularDesconto().toFixed(2)}`);
+const livroExemplo = new Livro("O Senhor dos Anéis", 100, "J.R.R. Tolkien");
+console.log(`Preço com desconto do livro: R$ ${livroExemplo.calcularDesconto().toFixed(2)}`);
 ```
 
 Deve ser criada uma Superclasse produto que define nome e preço, depois um método que aplica o desconto de 10%. Depois criar uma Subclasse Livro que usa extends Produto para herdar os atributos nome e preco, além de criar um atributo autor e sobrescrever calcularDesconto() para aplicar 20%. No construtor da classe Livro, usamos super(nome, preco) para chamar o construtor da classe pai (Produto), garantindo que nome e preco sejam inicializados corretamente.
